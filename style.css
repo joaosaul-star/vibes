@@ -1,0 +1,302 @@
+/* Configurações gerais */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #464545;
+    background-image: url("fundo-esmeralda.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    color: #E0E0E0;
+    font-family: Georgia, serif;
+}
+
+
+/* Player de música */
+
+.player-musica {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background-color: rgba(26, 26, 26, 0.9);
+    border: 1px solid #8B0000;
+    border-radius: 10px;
+
+    padding: 10px;
+
+    width: 300px;
+
+    z-index: 1000;
+}
+
+.player-musica img {
+    width: 75px;
+    height: 75px;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+.info-musica {
+    flex: 1;
+    min-width: 0;
+}
+
+.info-musica h3 {
+    color: #B00020;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.info-musica p {
+    color: #d1d1d1;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.player-musica audio {
+    width: 100%;
+    height: 32px;
+}
+
+
+/* Cabeçalho */
+
+.cabecalho {
+    text-align: center;
+    padding: 100px 20px 60px;
+}
+
+.cabecalho h1 {
+    color: #B00020;
+    font-size: 65px;
+    margin-bottom: 10px;
+
+    text-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
+}
+
+.cabecalho h2 {
+    color: #E0E0E0;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.cabecalho p {
+    color: #AAAAAA;
+    font-size: 18px;
+}
+
+
+/* Seção da letra */
+
+.letra {
+    width: 80%;
+    max-width: 750px;
+
+    margin: 0 auto 60px;
+    padding: 35px;
+
+    background-color: rgba(8, 8, 8, 0.88);
+
+    border: 1px solid #5C0000;
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.letra h2 {
+    color: #B00020;
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.letra p {
+    color: #E0E0E0;
+    font-size: 19px;
+    line-height: 1.9;
+
+    margin-bottom: 25px;
+}
+
+
+/* Imagens ilustrativas */
+
+.ilustracao {
+    text-align: center;
+    padding: 30px 20px 70px;
+}
+
+.ilustracao h2 {
+    color: #B00020;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* Grade 2x2 */
+
+.ilustracao {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    justify-content: center;
+    gap: 25px;
+}
+
+/* Título ocupa as duas colunas */
+
+.ilustracao h2 {
+    grid-column: 1 / -1;
+}
+
+.ilustracao img {
+    width: 300px;
+    height: 300px;
+
+    object-fit: cover;
+
+    border: 2px solid #5C0000;
+    border-radius: 10px;
+
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+}
+
+
+/* Rodapé */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    background-color: rgba(5, 5, 5, 0.90);
+
+    border-top: 1px solid #5C0000;
+
+    color: #999999;
+    font-size: 15px;
+}
+
+
+/* Ajustes para telas menores */
+
+@media (max-width: 600px) {
+
+    .player-musica {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 90%;
+        margin: 15px auto;
+    }
+
+    .cabecalho {
+        padding-top: 40px;
+    }
+
+    .cabecalho h1 {
+        font-size: 45px;
+    }
+
+    .cabecalho h2 {
+        font-size: 24px;
+    }
+
+    .letra {
+        width: 92%;
+        padding: 20px;
+    }
+
+    .letra p {
+        font-size: 17px;
+    }
+
+}
+
+/* Animação do disco */
+
+.capa-disco {
+    animation: girar-disco 5s linear infinite;
+    animation-play-state: paused;
+}
+
+/* Faz o disco girar */
+
+@keyframes girar-disco {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* O disco gira enquanto a música toca */
+
+.capa-disco.tocando {
+    animation-play-state: running;
+}
+
+.link-musica {
+    display: inline-block;
+
+    color: #B00020;
+    text-decoration: none;
+
+    font-size: 20px;
+
+    border: 1px solid #8B0000;
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.link-musica:hover {
+    background-color: #8B0000;
+    color: white;
+
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
+}
+
+.video {
+    text-align: center;
+    padding: 30px 20px 70px;
+}
+
+.video h2 {
+    color: #B00020;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.video video {
+    width: 700px;
+    max-width: 90%;
+
+    border: 2px solid #5C0000;
+    border-radius: 10px;
+
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+}
